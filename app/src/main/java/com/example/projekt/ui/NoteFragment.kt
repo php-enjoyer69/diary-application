@@ -43,7 +43,7 @@ class NoteFragment: Fragment(R.layout.fragment_notes), NoteAdapter.OnNoteClickLi
             viewLifecycleOwner.lifecycleScope.launch {
                 viewModel.notesEvent.collect {event ->
                     if(event is NoteViewModel.NotesEvent.ShowUndoSnackBar){
-                        Snackbar.make(requireView(), event.msg, Snackbar.LENGTH_LONG).setAction("COFNIJ"){
+                        Snackbar.make(requireView(), event.msg, Snackbar.LENGTH_LONG).setAction(getString(R.string.undo)){
                             viewModel.insertNote(event.note)
                         }.show()
                     }
@@ -59,6 +59,6 @@ class NoteFragment: Fragment(R.layout.fragment_notes), NoteAdapter.OnNoteClickLi
     }
 
     override fun onNoteLongClick(note: Note) {
-        viewModel.deleteNote(note)
+        viewModel.deleteNote(requireContext(), note)
     }
 }

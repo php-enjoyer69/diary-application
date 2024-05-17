@@ -9,7 +9,7 @@ import com.example.projekt.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AuthenticationFragment: Fragment(R.layout.fragment_authentication) {
+class WelcomeFragment: Fragment(R.layout.fragment_welcome) {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -18,7 +18,7 @@ class AuthenticationFragment: Fragment(R.layout.fragment_authentication) {
         val btnAuthenticate = view.findViewById<Button>(R.id.btn_authenticate)
 
                 btnAuthenticate.setOnClickListener {
-                    val action = AuthenticationFragmentDirections.actionAuthenticationFragmentToNoteFragment()
+                    val action = WelcomeFragmentDirections.actionAuthenticationFragmentToNoteFragment()
                     findNavController().navigate(action)
                 }
 

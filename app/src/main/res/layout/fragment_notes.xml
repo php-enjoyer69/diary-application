@@ -31,22 +31,16 @@
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <TextView
-        android:id="@+id/title_main"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="32dp"
-        android:fontFamily="@font/comic_neue_bold"
-        android:text="Mój Sekretny Pamiętniczek"
+        android:text="@string/app_name"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:fontFamily="@font/comic_neue_bold"
+        android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView_notes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:fontFamily="sans-serif" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

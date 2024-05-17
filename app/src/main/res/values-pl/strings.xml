@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">๋࣭ ⭑⚝ Mój Sekretny Pamiętniczek ⊹₊ ⋆</string>
+    <string name="app_name_clear">Mój Sekretny Pamiętniczek</string>
+    <string name="note_title">Tytuł ⸜(｡˃ ᵕ ˂)⸝♡</string>
+    <string name="note_content">Tutaj podziel się swoimi sekretami...°❀⋆.ೃ࿔*:･</string>
+    <string name="app_enter">🎀 Wchodzę 🎀</string>
+    <string name="app_description">Bezpieczne miejsce w którym ukryjesz swoje największe sekrety</string>
+    <string name="auth_subtitle">Autentykacja</string>
+    <string name="auth_subtitle2">Przyłóż swój słodki paluszek ♥</string>
+    <string name="cancel">Anuluj</string>
+    <string name="cancel_notify">Szanuj cudze sekrety!!</string>
+    <string name="cancel_signal">Autentykacja została przerwana przez użytkownika</string>
+    <string name="auth_error">Błąd autentykacji: </string>
+    <string name="auth_success">Miło znów Cię widzieć :3</string>
+    <string name="auth_not_enabled">Na twoim telefonie nie są aktywne zabezpieczenia prywatności</string>
+    <string name="undo">Cofnij</string>
+    <string name="delete_success">Wpis usunięty pomyślnie</string>
+</resources>

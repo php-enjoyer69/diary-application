@@ -1,7 +1,9 @@
 package com.example.projekt.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.projekt.R
 import com.example.projekt.data.dao.NoteDao
 import com.example.projekt.data.entity.Note
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,9 +29,10 @@ class NoteViewModel @Inject constructor(private val noteDao: NoteDao): ViewModel
         notesChannel.send(NotesEvent.NavigateToNotesFragment)
     }
 
-    fun deleteNote(note: Note) = viewModelScope.launch {
+    fun deleteNote(context: Context, note: Note) = viewModelScope.launch {
         noteDao.deleteNote(note)
-        notesChannel.send(NotesEvent.ShowUndoSnackBar(msg = "Wpis usunięty pomyślnie :3", note))
+        val message = context.getString(R.string.delete_success)
+        notesChannel.send(NotesEvent.ShowUndoSnackBar(msg = message, note))
     }
 
     sealed class NotesEvent{

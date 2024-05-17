@@ -27,13 +27,10 @@
     </fragment>
     <fragment
         android:id="@+id/authenticationFragment"
-        android:name="com.example.projekt.ui.AuthenticationFragment"
+        android:name="com.example.projekt.ui.WelcomeFragment"
         android:label="AuthenticationFragment" >
         <action
             android:id="@+id/action_authenticationFragment_to_noteFragment"
             app:destination="@id/noteFragment" />
-        <action
-            android:id="@+id/action_authenticationFragment_to_addEditNoteFragment"
-            app:destination="@id/addEditNoteFragment" />
     </fragment>
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.projekt
+package com.example.projekt.security
 
 import android.app.KeyguardManager
 import android.content.Context
@@ -14,8 +14,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.projekt.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,13 +28,13 @@ class Authentication : AppCompatActivity() {
         object : BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
                 super.onAuthenticationError(errorCode, errString)
-                notifyUser("Błąd autentykacji: $errString")
+                notifyUser(getString(R.string.auth_error) + " $errString")
                 finish()
             }
 
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult?) {
                 super.onAuthenticationSucceeded(result)
-                notifyUser("Miło znów Cię widzieć <3")
+                notifyUser(getString(R.string.auth_success))
             }
         }
 
@@ -45,22 +44,18 @@ class Authentication : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
+        //check if device has security enabled
         checkBiometricSupport()
 
+        //screenshot prevention
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
 
         val biometricPrompt = BiometricPrompt.Builder(this)
-            .setTitle("Mój Sekretny Pamiętniczek")
-            .setSubtitle("Logowanie do aplikacji")
-            .setDescription("Przyłóż swój słodki paluszek ♥")
-            .setNegativeButton("Anuluj", this.mainExecutor, DialogInterface.OnClickListener { dialog, which ->
-                notifyUser("Szanuj cudze sekrety!!!")
+            .setTitle(getString(R.string.app_name))
+            .setSubtitle(getString(R.string.auth_subtitle))
+            .setDescription(getString(R.string.auth_subtitle2))
+            .setNegativeButton(getString(R.string.cancel), this.mainExecutor, DialogInterface.OnClickListener { dialog, which ->
+                notifyUser(getString(R.string.cancel_notify))
                 finish()
             }).build()
 
@@ -74,20 +69,16 @@ class Authentication : AppCompatActivity() {
     private fun getCancellationSignal() : CancellationSignal {
         cancellationSignal = CancellationSignal()
         cancellationSignal?.setOnCancelListener {
-            notifyUser("Authentication was cancelled by the user")
+            notifyUser(getString(R.string.cancel_signal))
         }
         return cancellationSignal as CancellationSignal
     }
 
     private fun checkBiometricSupport(): Boolean {
         val keyguardManager: KeyguardManager = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
-
+        //user does not have screen lock enabled on their device
         if (!keyguardManager.isKeyguardSecure) {
-            notifyUser("Fingerprint authentication has not been enabled in settings")
-            return false
-        }
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.USE_BIOMETRIC) != PackageManager.PERMISSION_GRANTED) {
-            notifyUser("Fingerprint authentication is not enabled in settings")
+            notifyUser(getString(R.string.auth_not_enabled))
             return false
         }
         return packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)
