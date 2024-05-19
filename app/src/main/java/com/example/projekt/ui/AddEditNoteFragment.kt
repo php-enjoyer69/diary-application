@@ -14,17 +14,22 @@ import com.example.projekt.viewmodel.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+//a fragment for adding and editing notes
 @AndroidEntryPoint
 class AddEditNoteFragment: Fragment(R.layout.fragment_addeditnotes)  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //ViewModel for managing UI-related data
         val viewModel by viewModels<NoteViewModel>()
+        //binding object for accessing UI components
         val binding = FragmentAddeditnotesBinding.bind(requireView())
+        //arguments passed to this fragment
         val args: AddEditNoteFragmentArgs by navArgs()
         val note = args.note
 
+        //if editing an existing note
         if(note != null){
             binding.apply {
                 titleEdit.setText(note.title)
@@ -36,7 +41,7 @@ class AddEditNoteFragment: Fragment(R.layout.fragment_addeditnotes)  {
                     viewModel.updateNote(updateNote)
                 }
             }
-        }else{
+        }else{ //if adding a new note
             binding.apply {
                 saveBtn.setOnClickListener {
                     val title = titleEdit.text.toString()
@@ -47,6 +52,7 @@ class AddEditNoteFragment: Fragment(R.layout.fragment_addeditnotes)  {
             }
         }
 
+        //collect events from the ViewModel
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.notesEvent.collect{event ->
                 if(event is NoteViewModel.NotesEvent.NavigateToNotesFragment){

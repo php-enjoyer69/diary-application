@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.projekt.R
 import dagger.hilt.android.AndroidEntryPoint
 
+//fragment that welcomes the user
 @AndroidEntryPoint
 class WelcomeFragment: Fragment(R.layout.fragment_welcome) {
 
@@ -17,10 +18,11 @@ class WelcomeFragment: Fragment(R.layout.fragment_welcome) {
 
         val btnAuthenticate = view.findViewById<Button>(R.id.btn_authenticate)
 
-                btnAuthenticate.setOnClickListener {
-                    val action = WelcomeFragmentDirections.actionAuthenticationFragmentToNoteFragment()
-                    findNavController().navigate(action)
-                }
+        //enter the application
+        btnAuthenticate.setOnClickListener {
+            val action = WelcomeFragmentDirections.actionAuthenticationFragmentToNoteFragment()
+            findNavController().navigate(action)
+        }
 
 
     }
