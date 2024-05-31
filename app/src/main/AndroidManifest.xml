@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 
     <application
-        android:name=".DiaryApp"
+        android:name="com.example.mysecretdiary.DiaryApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Projekt"
         tools:targetApi="31">
         <activity
-            android:name=".security.Authentication"
+            android:name="com.example.mysecretdiary.security.Authentication"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

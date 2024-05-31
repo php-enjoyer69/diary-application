@@ -1,11 +1,11 @@
-package com.example.projekt.data.dao
+package com.example.mysecretdiary.data.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.projekt.data.entity.Note
+import com.example.mysecretdiary.data.entity.Note
 import kotlinx.coroutines.flow.Flow
 
 @Dao

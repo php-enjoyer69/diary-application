@@ -1,9 +1,9 @@
-package com.example.projekt.adapter
+package com.example.mysecretdiary.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projekt.data.entity.Note
+import com.example.mysecretdiary.data.entity.Note
 import com.example.projekt.databinding.ItemNotesBinding
 import java.text.SimpleDateFormat
 

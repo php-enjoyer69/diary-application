@@ -1,4 +1,4 @@
-package com.example.projekt.data.entity
+package com.example.mysecretdiary.data.entity
 
 import android.os.Parcelable
 import androidx.room.Entity

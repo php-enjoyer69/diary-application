@@ -1,4 +1,4 @@
-package com.example.projekt.ui
+package com.example.mysecretdiary.ui
 
 import android.os.Bundle
 import android.view.View

@@ -1,4 +1,4 @@
-package com.example.projekt.security
+package com.example.mysecretdiary.security
 
 import android.app.KeyguardManager
 import android.content.Context
@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import com.example.projekt.R
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -1,4 +1,4 @@
-package com.example.projekt.ui
+package com.example.mysecretdiary.ui
 
 import android.os.Bundle
 import android.view.View
@@ -8,9 +8,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.projekt.R
-import com.example.projekt.data.entity.Note
+import com.example.mysecretdiary.data.entity.Note
 import com.example.projekt.databinding.FragmentAddeditnotesBinding
-import com.example.projekt.viewmodel.NoteViewModel
+import com.example.mysecretdiary.viewmodel.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

@@ -1,11 +1,11 @@
-package com.example.projekt.viewmodel
+package com.example.mysecretdiary.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.projekt.R
-import com.example.projekt.data.dao.NoteDao
-import com.example.projekt.data.entity.Note
+import com.example.mysecretdiary.data.dao.NoteDao
+import com.example.mysecretdiary.data.entity.Note
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -19,7 +19,7 @@ class NoteViewModel @Inject constructor(private val noteDao: NoteDao): ViewModel
 
     //live data list of all notes retrieved from the DAO
     val notes = noteDao.getAllNotes()
-    //channel for sending one-off events to the UI
+    //channel for sending events to the UI
     val notesChannel = Channel<NotesEvent>()
     val notesEvent = notesChannel.receiveAsFlow()
 

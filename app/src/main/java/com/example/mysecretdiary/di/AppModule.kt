@@ -1,8 +1,8 @@
-package com.example.projekt.di
+package com.example.mysecretdiary.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.projekt.data.database.NoteDatabase
+import com.example.mysecretdiary.data.database.NoteDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
